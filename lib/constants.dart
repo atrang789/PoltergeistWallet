@@ -14,4 +14,5 @@ const kInactiveCardColour = Color(0xFF111328);
 const kMediumButtonTextStyle = TextStyle(
   fontSize: 18.0,
   fontWeight: FontWeight.normal,
+  color: Colors.white
 );

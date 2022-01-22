@@ -10,6 +10,8 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreen extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
-
+    return Container(
+      child: Text('Settings Screen'),
+    );
   }
 }

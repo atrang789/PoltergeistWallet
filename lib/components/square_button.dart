@@ -9,8 +9,14 @@ class SquareButton extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    return RawMaterialButton(
       onPressed: onPressed,
+      constraints: BoxConstraints.tightFor(
+        width: 400.0,
+        height: 20.0,
+      ),
+      padding: EdgeInsets.all(3.0),
+      fillColor: Colors.lightBlue,
       child: Container(
         child: Center(
           child: Text(
@@ -21,10 +27,8 @@ class SquareButton extends StatelessWidget{
         width: double.infinity,
         height: kBottomContainerHeight,
       ),
-      style: ElevatedButton.styleFrom(
-        shape: BeveledRectangleBorder(
-            borderRadius: BorderRadius.circular(4)
-        ),
+      shape: BeveledRectangleBorder(
+          borderRadius: BorderRadius.circular(4)
       ),
     );
   }
