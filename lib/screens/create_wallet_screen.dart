@@ -10,6 +10,8 @@ class CreateWalletScreen extends StatefulWidget {
 class _CreateWalletScreen extends State<CreateWalletScreen> {
   @override
   Widget build(BuildContext context) {
-
+    return Container(
+      child: Text('Create Wallet Screen'),
+    );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:poltergeistwallet/screens/create_wallet_screen.dart';
+import 'package:poltergeistwallet/screens/import_wallet_screen.dart';
+import 'package:poltergeistwallet/screens/manage_screen.dart';
 import 'package:poltergeistwallet/screens/settings_screen.dart';
 import 'package:poltergeistwallet/screens/welcome_screen.dart';
 
@@ -20,6 +22,8 @@ class PoltergeistWallet extends StatelessWidget {
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         CreateWalletScreen.id: (context) => CreateWalletScreen(),
+        ImportWalletScreen.id: (context) => ImportWalletScreen(),
+        ManageScreen.id: (context) => ManageScreen(),
         SettingsScreen.id: (context) => SettingsScreen(),
       },
     );
