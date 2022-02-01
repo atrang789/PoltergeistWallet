@@ -11,10 +11,6 @@ class SquareButton extends StatelessWidget{
   Widget build(BuildContext context) {
     return RawMaterialButton(
       onPressed: onPressed,
-      constraints: BoxConstraints.tightFor(
-        width: 400.0,
-        height: 20.0,
-      ),
       padding: EdgeInsets.all(3.0),
       fillColor: Colors.lightBlue,
       child: Container(
