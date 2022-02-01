@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const kBottomContainerHeight = 40.0;
+const kBottomContainerHeight = 20.0;
 
 //App Colors
 const kPrimaryColor = Color(0xFF17B1E7);
@@ -16,3 +16,5 @@ const kMediumButtonTextStyle = TextStyle(
   fontWeight: FontWeight.normal,
   color: Colors.white
 );
+
+const kSettingsIcon = 'images/setting_icon.png';

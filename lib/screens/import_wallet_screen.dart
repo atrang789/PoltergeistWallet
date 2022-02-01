@@ -1,4 +1,3 @@
-import 'dart:html';
 import 'package:flutter/widgets.dart';
 
 class ImportWalletScreen extends StatefulWidget {

@@ -5,6 +5,7 @@ import 'package:poltergeistwallet/constants.dart';
 import 'package:poltergeistwallet/screens/create_wallet_screen.dart';
 import 'package:poltergeistwallet/screens/import_wallet_screen.dart';
 import 'package:poltergeistwallet/screens/manage_screen.dart';
+import 'package:poltergeistwallet/screens/settings_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static String id = 'welcome_screen';
@@ -13,11 +14,27 @@ class WelcomeScreen extends StatefulWidget {
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProviderStateMixin {
   final String _createWalletText = 'Create New Wallet';
   final String _importWalletText = 'Import Existing Wallet';
   final String _manageButtonText = 'Manage';
   final double _sizedBoxHeight = 5;
+
+  AnimationController _animationController;
+  Animation _animation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _animationController = AnimationController(vsync: this, duration: Duration(seconds: 1), lowerBound: 0.2);
+
+    _animation = CurvedAnimation(parent: _animationController, curve: Curves.bounceOut);
+    _animationController.forward();
+    _animationController.addListener(() {setState(() {
+
+    });});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +51,33 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           'POLTERGEIST WALLET',
         )),
         body: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
+              // mainAxisAlignment: MainAxisAlignment.end;
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, SettingsScreen.id);
+                },
+                child: RotationTransition(
+                  turns: Tween(begin: 0.0, end: 1.0).animate(_animationController),
+                  child: Hero(
+                    tag: SettingsScreen.heroTag,
+                    child: Container(
+                      margin: EdgeInsets.all(20.0),
+                      width: _animation.value * 50.0,
+                      child: Image.asset(kSettingsIcon),
+                    ),
+                  ),
+                ),
+              ),
+
               //Insert list here
+
               Expanded(
                   child: Container(
-                    padding: const EdgeInsets.all(20.0),
+                    color: Colors.white,
+                    padding: EdgeInsets.all(20.0),
                     child: Column(
                       children: <Widget>[
                         Expanded(
