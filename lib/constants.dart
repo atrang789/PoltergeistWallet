@@ -7,10 +7,7 @@ const kPrimaryColor = Color(0xFF17B1E7);
 const kSecondaryColor = Color(0xFF0077B7);
 const kDarkSecondaryColor = Color(0xFF006599);
 
-//Component Colors
-const kActiveCardColour = Color(0xFF1D1E33);
-const kInactiveCardColour = Color(0xFF111328);
-
+//Styles
 const kMediumButtonTextStyle = TextStyle(
   fontSize: 18.0,
   fontWeight: FontWeight.normal,
@@ -18,3 +15,12 @@ const kMediumButtonTextStyle = TextStyle(
 );
 
 const kSettingsIcon = 'images/setting_icon.png';
+
+//Text
+const String kSettingBackup = 'Back up your seed phrase!';
+const String kWarning = 'Warning';
+const String kSettingWarningDescription = 'For your own safety, write down these words on a piece of paper and store it safely and hidden. These words serve as a backup of your wallet.  Without a backup, it is impossible to recover your private key, and any funds will be lost if something happens to this device';
+
+//Button Text
+const String kButtonCopy = 'Copy to clipboard';
+const String kButtonContinue = 'Continue';

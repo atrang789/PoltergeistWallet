@@ -31,85 +31,87 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
 
     _animation = CurvedAnimation(parent: _animationController, curve: Curves.bounceOut);
     _animationController.forward();
-    _animationController.addListener(() {setState(() {
-
-    });});
+    _animationController.addListener(() {
+      setState(() {});
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.bottomRight,
-              end: Alignment.topLeft,
-              colors: [kPrimaryColor, kDarkSecondaryColor])),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(
-            title: Text(
-          'POLTERGEIST WALLET',
-        )),
-        body: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              // mainAxisAlignment: MainAxisAlignment.end;
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, SettingsScreen.id);
-                },
-                child: RotationTransition(
-                  turns: Tween(begin: 0.0, end: 1.0).animate(_animationController),
-                  child: Hero(
-                    tag: SettingsScreen.heroTag,
-                    child: Container(
-                      margin: EdgeInsets.all(20.0),
-                      width: _animation.value * 50.0,
-                      child: Image.asset(kSettingsIcon),
+    return SafeArea(
+      child: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.bottomRight,
+                end: Alignment.topLeft,
+                colors: [kPrimaryColor, kDarkSecondaryColor])),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+              title: Text(
+            'POLTERGEIST WALLET',
+          )),
+          body: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                // mainAxisAlignment: MainAxisAlignment.end;
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, SettingsScreen.id);
+                  },
+                  child: RotationTransition(
+                    turns: Tween(begin: 0.0, end: 1.0).animate(_animationController),
+                    child: Hero(
+                      tag: SettingsScreen.heroTag,
+                      child: Container(
+                        margin: EdgeInsets.all(20.0),
+                        width: _animation.value * 50.0,
+                        child: Image.asset(kSettingsIcon),
+                      ),
                     ),
                   ),
                 ),
-              ),
 
-              //Insert list here
+                //Insert list here
 
-              Expanded(
-                  child: Container(
-                    color: Colors.white,
-                    padding: EdgeInsets.all(20.0),
-                    child: Column(
-                      children: <Widget>[
-                        Expanded(
-                          child: SquareButton(
-                            buttonTitle: _createWalletText,
-                            onPressed: () {
-                              Navigator.pushNamed(context, CreateWalletScreen.id);
-                            },
+                Expanded(
+                    child: Container(
+                      color: Colors.white,
+                      padding: EdgeInsets.all(20.0),
+                      child: Column(
+                        children: <Widget>[
+                          Expanded(
+                            child: SquareButton(
+                              buttonTitle: _createWalletText,
+                              onPressed: () {
+                                Navigator.pushNamed(context, CreateWalletScreen.id);
+                              },
+                            ),
                           ),
-                        ),
-                        SizedBox(height: _sizedBoxHeight),
-                        Expanded(
-                          child: SquareButton(
-                            buttonTitle: _importWalletText,
-                            onPressed: () {
-                              Navigator.pushNamed(context, ImportWalletScreen.id);
-                            },
+                          SizedBox(height: _sizedBoxHeight),
+                          Expanded(
+                            child: SquareButton(
+                              buttonTitle: _importWalletText,
+                              onPressed: () {
+                                Navigator.pushNamed(context, ImportWalletScreen.id);
+                              },
+                            ),
                           ),
-                        ),
-                        SizedBox(height: _sizedBoxHeight),
-                        Expanded(
-                          child: SquareButton(
-                            buttonTitle: _manageButtonText,
-                            onPressed: () {
-                              Navigator.pushNamed(context, ManageScreen.id);
-                            },
+                          SizedBox(height: _sizedBoxHeight),
+                          Expanded(
+                            child: SquareButton(
+                              buttonTitle: _manageButtonText,
+                              onPressed: () {
+                                Navigator.pushNamed(context, ManageScreen.id);
+                              },
+                            ),
                           ),
-                        ),
-                      ],
-                    )
-              )),
-            ]),
+                        ],
+                      )
+                )),
+              ]),
+        ),
       ),
     );
   }

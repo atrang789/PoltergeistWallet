@@ -5,6 +5,8 @@ import 'package:poltergeistwallet/screens/manage_screen.dart';
 import 'package:poltergeistwallet/screens/settings_screen.dart';
 import 'package:poltergeistwallet/screens/welcome_screen.dart';
 
+import 'constants.dart';
+
 void main() {
   runApp(PoltergeistWallet());
 }
@@ -14,10 +16,6 @@ class PoltergeistWallet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       initialRoute: WelcomeScreen.id,
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
