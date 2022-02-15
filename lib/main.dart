@@ -4,8 +4,21 @@ import 'package:poltergeistwallet/screens/import_wallet_screen.dart';
 import 'package:poltergeistwallet/screens/manage_screen.dart';
 import 'package:poltergeistwallet/screens/settings_screen.dart';
 import 'package:poltergeistwallet/screens/welcome_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-import 'constants.dart';
+/*void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    // Replace with actual values
+    options: FirebaseOptions(
+      apiKey: "XXX",
+      appId: "XXX",
+      messagingSenderId: "XXX",
+      projectId: "XXX",
+    ),
+  );
+  runApp(PoltergeistWallet());
+}*/
 
 void main() {
   runApp(PoltergeistWallet());
