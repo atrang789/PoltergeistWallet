@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "695406217192",
+    "project_id": "poltergeistwalletdata",
+    "storage_bucket": "poltergeistwalletdata.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695406217192:android:6727b3890e3f200750c65d",
+        "android_client_info": {
+          "package_name": "com.marauders.poltergeistwallet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695406217192-mdafp1hvd9n46e8b1spa9mpmfuvc7434.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxQ4zZ9QVo1pAdJkjMvIW_S-v5BJJr8Ec"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "695406217192-mdafp1hvd9n46e8b1spa9mpmfuvc7434.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
