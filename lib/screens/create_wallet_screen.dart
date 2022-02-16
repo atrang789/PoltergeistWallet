@@ -1,7 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:poltergeistwallet/api/GenerateWallet.dart';
 import 'package:poltergeistwallet/constants.dart';
 import 'package:poltergeistwallet/components/square_button.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
@@ -62,7 +61,7 @@ class _CreateWalletScreen extends State<CreateWalletScreen> {
               ),
               SquareButton(
                 onPressed: () {
-                  showDialogWithFields(_alertTitle, _alertDescription);
+                  showDialogWithFields();
                 },
                 buttonTitle: kButtonContinue,
               ),
@@ -73,14 +72,14 @@ class _CreateWalletScreen extends State<CreateWalletScreen> {
     );
   }
 
-  void showDialogWithFields(String title, String description) {
+  void showDialogWithFields() {
     showDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
             scrollable: true,
             title: Text(
-              title,
+              _alertTitle,
               style: TextStyle(color: Colors.blue, fontSize: 16.0),
             ),
             content: Padding(
@@ -89,7 +88,7 @@ class _CreateWalletScreen extends State<CreateWalletScreen> {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      description,
+                      _alertDescription,
                       style: TextStyle(color: Colors.blue, fontSize: 16.0),
                     ),
                     TextFormField(
@@ -106,12 +105,12 @@ class _CreateWalletScreen extends State<CreateWalletScreen> {
             ),
             actions: [
               ElevatedButton(
-                  child: Text("Cancel"),
+                  child: Text(kButtonCancel),
                   onPressed: () {
                     Navigator.pop(context);
                   }),
               ElevatedButton(
-                  child: Text("Submit"),
+                  child: Text(kButtonSubmit),
                   onPressed: () {
                     setState(() {
                       showSpinner = true;
@@ -141,8 +140,4 @@ class _CreateWalletScreen extends State<CreateWalletScreen> {
       });
     });
   }*/
-
-  void verifySeedWords() {
-
-  }
 }
