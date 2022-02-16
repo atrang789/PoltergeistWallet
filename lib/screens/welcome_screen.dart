@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:poltergeistwallet/components/alert_dialog_component.dart';
 import 'package:poltergeistwallet/components/square_button.dart';
 import 'package:poltergeistwallet/constants.dart';
 import 'package:poltergeistwallet/screens/create_wallet_screen.dart';
@@ -94,7 +95,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                             child: SquareButton(
                               buttonTitle: _importWalletText,
                               onPressed: () {
-                                Navigator.pushNamed(context, ImportWalletScreen.id);
+                                AlertDialogResuable.showAlertDialog(context);
                               },
                             ),
                           ),
