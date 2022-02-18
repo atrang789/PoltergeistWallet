@@ -1,0 +1,23 @@
+import 'package:flutter/material.dart';
+import 'package:poltergeistwallet/screens/wallet_detail_screen.dart';
+
+class WalletTileWidget extends StatelessWidget {
+  WalletTileWidget(this.name);
+
+  final String name;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(title: Text(name), trailing: Icon(Icons.navigate_next), tileColor: Colors.white, onTap: () {navigateToWalletDetails(context);},);
+  }
+
+  void navigateToWalletDetails(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => WalletDetail(
+        ),
+      ),
+    );
+  }
+}
