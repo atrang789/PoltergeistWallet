@@ -24,7 +24,7 @@ class SquareButton extends StatelessWidget {
         height: kBottomContainerHeight,
       ),
       shape: BeveledRectangleBorder(
-          borderRadius: BorderRadius.circular(4)
+          borderRadius: BorderRadius.circular(5)
       ),
     );
   }
