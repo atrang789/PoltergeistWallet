@@ -48,80 +48,91 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        padding: EdgeInsets.all(30.0),
+        padding: EdgeInsets.fromLTRB(30, 30, 30, 0),
         decoration: BoxDecoration(
             gradient: LinearGradient(
-                begin: Alignment.bottomRight,
+                begin: Alignment.topRight,
                 end: Alignment.topLeft,
                 colors: [kPrimaryColor, kDarkSecondaryColor])),
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: AppBar(
-              title: Text(
-            'POLTERGEIST WALLET',
-          )),
           body: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                // mainAxisAlignment: MainAxisAlignment.end;
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, SettingsScreen.id);
-                  },
-                  child: RotationTransition(
-                    turns: Tween(begin: 0.0, end: 1.0).animate(_animationController),
-                    child: Hero(
-                      tag: SettingsScreen.heroTag,
-                      child: Container(
-                        margin: EdgeInsets.all(20.0),
-                        width: _animation.value * 50.0,
-                        child: Image.asset(kSettingsIcon),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget> [
+                    Text('Poltergeist Wallet', style: TextStyle(fontSize: 40.0, color: Colors.white),),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, SettingsScreen.id);
+                      },
+                      child: RotationTransition(
+                        turns: Tween(begin: 0.0, end: 1.0).animate(_animationController),
+                        child: Hero(
+                          tag: SettingsScreen.heroTag,
+                          child: Container(
+                            width: _animation.value * 40.0,
+                            child: Image.asset(kSettingsIcon),
+                          ),
+                        ),
                       ),
                     ),
+                  ]
+                ),
+                SizedBox(height: 30.0,),
+                Expanded(
+                  child: Container(
+                    decoration: getBorderRadiusGeometry(Colors.lightBlue),
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child:  Container(
+                            padding: EdgeInsets.all(30.0),
+                            child: WalletListWidget(_walletInfoList),
+                          ),
+                        ),
+                        Container(
+                            decoration: getBorderRadiusGeometry(Colors.white),
+                            height: 200,
+                            padding: EdgeInsets.all(30.0),
+                            child: Column(
+                              children: <Widget>[
+                                Expanded(
+                                  child: SquareButton(
+                                    buttonTitle: _createWalletText,
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, CreateWalletScreen.id);
+                                    },
+                                  ),
+                                ),
+                                SizedBox(height: _sizedBoxHeight),
+                                Expanded(
+                                  child: SquareButton(
+                                    buttonTitle: _importWalletText,
+                                    onPressed: () {
+                                      AlertDialogResuable.showAlertDialog(context);
+                                    },
+                                  ),
+                                ),
+                                SizedBox(height: _sizedBoxHeight),
+                                Expanded(
+                                  child: SquareButton(
+                                    buttonTitle: _manageButtonText,
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, ManageScreen.id);
+                                    },
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                      ],
+                    ),
                   ),
-                ),
+                )
 
-                Container(
-                  height: 200,
-                  child:    WalletListWidget(_walletInfoList),
-                ),
-
-                Container(
-                  height: 200,
-                  color: Colors.white,
-                  padding: EdgeInsets.all(20.0),
-                  child: Column(
-                    children: <Widget>[
-                      Expanded(
-                        child: SquareButton(
-                          buttonTitle: _createWalletText,
-                          onPressed: () {
-                            Navigator.pushNamed(context, CreateWalletScreen.id);
-                          },
-                        ),
-                      ),
-                      SizedBox(height: _sizedBoxHeight),
-                      Expanded(
-                        child: SquareButton(
-                          buttonTitle: _importWalletText,
-                          onPressed: () {
-                            AlertDialogResuable.showAlertDialog(context);
-                          },
-                        ),
-                      ),
-                      SizedBox(height: _sizedBoxHeight),
-                      Expanded(
-                        child: SquareButton(
-                          buttonTitle: _manageButtonText,
-                          onPressed: () {
-                            Navigator.pushNamed(context, ManageScreen.id);
-                          },
-                        ),
-                      ),
-                    ],
-                  )
-                ),
               ]),
         ),
       ),
@@ -131,9 +142,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
   void getWalletList() {
     _walletInfoList = [];
 
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < 15; i++) {
       _walletInfoList.add(new WalletInfo('Personal Wallet $i'));
     }
+  }
+
+  BoxDecoration getBorderRadiusGeometry(Color frameColor) {
+    return BoxDecoration(borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)), color: frameColor);
   }
 }
 

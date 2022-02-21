@@ -14,8 +14,10 @@ class WalletListWidget extends StatefulWidget {
 class _WalletListStateState extends State<WalletListWidget> {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(itemBuilder: (context, index){
+    return ListView.separated(itemBuilder: (context, index){
+      return SizedBox(height: 2,);
+    }, itemCount: widget.walletInfoList.length, separatorBuilder: (BuildContext context, int index) {
       return WalletTileWidget(widget.walletInfoList[index].walletName);
-    }, itemCount: widget.walletInfoList.length,);
+    }, );
   }
 }
