@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const kBottomContainerHeight = 20.0;
+const kBottomButtonHeight = 20.0;
 
 //App Colors
 const kPrimaryColor = Color(0xFF4CC1EA);
@@ -13,6 +13,8 @@ const kMediumButtonTextStyle = TextStyle(
   fontWeight: FontWeight.normal,
   color: Colors.white
 );
+
+const kLabelTextSyle = TextStyle(fontSize: 18, color: Colors.white, fontWeight:  FontWeight.normal);
 
 const kSettingsIcon = 'images/setting_icon.png';
 
@@ -27,3 +29,8 @@ const String kButtonCopy = 'Copy to clipboard';
 const String kButtonContinue = 'Continue';
 const String kButtonCancel = 'Cancel';
 const String kButtonSubmit = 'Submit';
+const String kButtonBalances = 'Balances';
+const String kButtonHistory = 'History';
+const String kButtonAccount = 'Account';
+const String kButtonExit = 'Exit';
+const String kButtonExplore = 'Explore';
