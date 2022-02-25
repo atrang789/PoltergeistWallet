@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:poltergeistwallet/components/alert_dialog_component.dart';
+import 'package:poltergeistwallet/components/gradient_theme.dart';
 import 'package:poltergeistwallet/components/square_button.dart';
 import 'package:poltergeistwallet/constants.dart';
 import 'package:poltergeistwallet/model/wallet_info.dart';
@@ -49,11 +50,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     return SafeArea(
       child: Container(
         padding: EdgeInsets.fromLTRB(30, 30, 30, 0),
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.topLeft,
-                colors: [kPrimaryColor, kDarkSecondaryColor])),
+        decoration: GradientBackground().gradientBoxDecoration(),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Column(
@@ -63,7 +60,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget> [
-                    Text('Poltergeist Wallet', style: TextStyle(fontSize: 40.0, color: Colors.white),),
+                    SizedBox(),
+                    Text('Poltergeist Wallet', style: TextStyle(fontSize: 36.0, color: Colors.white,),),
                     GestureDetector(
                       onTap: () {
                         Navigator.pushNamed(context, SettingsScreen.id);
@@ -87,16 +85,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                     decoration: getBorderRadiusGeometry(Colors.lightBlue),
                     child: Column(
                       children: [
+                        SizedBox(height: 20,),
+                        Text('Wallet List [Phantasma, Neo, Ethereum, Binance Smart Chain]', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
                         Expanded(
                           child:  Container(
-                            padding: EdgeInsets.all(30.0),
+                            padding: EdgeInsets.fromLTRB(20, 10, 20, 20),
+
                             child: WalletListWidget(_walletInfoList),
                           ),
                         ),
                         Container(
                             decoration: getBorderRadiusGeometry(Colors.white),
                             height: 200,
-                            padding: EdgeInsets.all(30.0),
+                            padding: EdgeInsets.all(20.0),
                             child: Column(
                               children: <Widget>[
                                 Expanded(
