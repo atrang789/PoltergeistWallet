@@ -1,13 +1,17 @@
-enum CryptoType {
-  Phantasma,
-  Ethereum,
-  Neo,
-  Binance
-}
-
 class AddressType {
-  AddressType();
+  AddressType({this.address});
 
   String address;
-  String qrCode;
+
+  AddressType fromJson(Map<String, Object> json) {
+    return AddressType(
+      address: json['address'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'address': address,
+    };
+  }
 }

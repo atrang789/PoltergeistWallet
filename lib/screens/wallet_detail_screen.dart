@@ -3,8 +3,13 @@ import 'package:poltergeistwallet/components/small_square_button.dart';
 import 'package:poltergeistwallet/components/square_button.dart';
 import 'package:poltergeistwallet/constants.dart';
 import 'package:poltergeistwallet/components/gradient_theme.dart';
+import 'package:poltergeistwallet/model/wallet_info.dart';
 
 class WalletDetail extends StatefulWidget {
+  WalletDetail(this.walletInfo);
+
+  WalletInfo walletInfo;
+
   @override
   _WalletDetailState createState() => _WalletDetailState();
 }
@@ -72,7 +77,7 @@ class _WalletDetailState extends State<WalletDetail> {
                       ),
                       height: 200,
                       width: 200,
-                      child: Text('QR \nCODE', textAlign: TextAlign.center, style: TextStyle(fontSize: 50),),
+                      child: Text('QR \n $widget.walletInfo', textAlign: TextAlign.center, style: TextStyle(fontSize: 50),),
                     ),
                   ),
                   Row(

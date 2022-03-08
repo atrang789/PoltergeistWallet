@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:poltergeistwallet/model/address_type.dart';
+import 'package:poltergeistwallet/model/wallet_info.dart';
 import 'package:poltergeistwallet/screens/wallet_detail_screen.dart';
 
 class WalletTileWidget extends StatelessWidget {
-  WalletTileWidget(this.name);
+  WalletTileWidget(this.walletInfo);
 
-  final String name;
+  final WalletInfo walletInfo;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class WalletTileWidget extends StatelessWidget {
       ),
       color: Colors.white,
       child: ListTile(
-        title: Text(name),
+        title: Text(walletInfo.name),
         trailing: Icon(Icons.navigate_next),
         // tileColor: Colors.white,
         // shape: RoundedRectangleBorder(borderRadius: borderRadius),
@@ -31,8 +33,7 @@ class WalletTileWidget extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => WalletDetail(
-        ),
+        builder: (context) => WalletDetail(walletInfo),
       ),
     );
   }

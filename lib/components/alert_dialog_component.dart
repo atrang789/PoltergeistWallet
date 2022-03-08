@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:poltergeistwallet/constants.dart';
 
 class AlertDialogResuable {
-  static Future<void> showAlertDialog (BuildContext _context, ) async {
+  static Future<void> showAlertDialog (BuildContext _context, Function onPress, TextEditingController textEditingController) async {
     return showDialog(
         context: _context,
         builder: (BuildContext context) {
@@ -23,6 +23,7 @@ class AlertDialogResuable {
                       style: TextStyle(color: Colors.blue, fontSize: 16.0),
                     ),
                     TextFormField(
+                      controller: textEditingController,
                       decoration: InputDecoration(),
                       maxLines: 5,
                       minLines: 3,
@@ -39,10 +40,12 @@ class AlertDialogResuable {
                   }),
               ElevatedButton(
                   child: Text(kButtonSubmit),
-                  onPressed: () {
-                  })
+                  onPressed: onPress,
+              )
             ],
           );
         });
   }
+
+
 }

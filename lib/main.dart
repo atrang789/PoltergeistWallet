@@ -6,7 +6,7 @@ import 'package:poltergeistwallet/screens/settings_screen.dart';
 import 'package:poltergeistwallet/screens/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-/*void main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     // Replace with actual values
@@ -14,13 +14,9 @@ import 'package:firebase_core/firebase_core.dart';
       apiKey: "XXX",
       appId: "XXX",
       messagingSenderId: "XXX",
-      projectId: "XXX",
+      projectId: "poltergeistwalletdata",
     ),
   );
-  runApp(PoltergeistWallet());
-}*/
-
-void main() {
   runApp(PoltergeistWallet());
 }
 
