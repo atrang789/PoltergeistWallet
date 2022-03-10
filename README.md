@@ -1,6 +1,6 @@
 # poltergeistwallet
 
-A new Flutter project.
+Flutter Poltergeist Wallet
 
 ## Getting Started
 
